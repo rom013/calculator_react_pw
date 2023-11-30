@@ -13,8 +13,12 @@ function App() {
 
 	useEffect(()=>{
 		if (valuesDisplay.length > 0) setDisabledKey(false)
-		if(values.endsWith("+") || values.endsWith("-") || values.endsWith("*") || values.endsWith("/")) setDisabledKey(true)
-	},[values])
+		else setDisabledKey(true)
+
+		if(values.endsWith("+") || values.endsWith("-") || values.endsWith("*") || values.endsWith("/")) {
+			setDisabledKey(true)
+		}
+	},[values, oldValue])
 
 	return (
 		<main
@@ -25,7 +29,7 @@ function App() {
 			>
 
 				<div
-					className="bg-zinc-100 px-5 py-8 rounded-lg flex flex-col gap-6 w-fit max-w-md"
+					className="bg-zinc-100 dark:bg-zinc-800 px-5 py-8 rounded-lg flex flex-col gap-6 w-fit max-w-md"
 				>
 					<Display  
 						oldValue={oldValue}
@@ -166,6 +170,7 @@ function App() {
 								setNewValue={setValues}
 								setValueDisplay={setValuesDisplay}
 								setOldValue={setOldValue}
+								className={"bg-red-500 hover:bg-red-600"}
 							/>
 							<ButtonKeyBoard
 								codeKey={"+"}
@@ -176,6 +181,7 @@ function App() {
 								setValueDisplay={setValuesDisplay}
 
 								disabled={disabledKey}
+								className={"bg-slate-700 hover:bg-slate-800 text-sm"}
 							/>
 							<ButtonKeyBoard
 								codeKey={"-"}
@@ -186,6 +192,7 @@ function App() {
 								setValueDisplay={setValuesDisplay}
 
 								disabled={disabledKey}
+								className={"bg-slate-700 hover:bg-slate-800 text-sm"}
 							/>
 							<ButtonKeyBoard
 								codeKey={"/"}
@@ -196,6 +203,7 @@ function App() {
 								setValueDisplay={setValuesDisplay}
 
 								disabled={disabledKey}
+								className={"bg-slate-700 hover:bg-slate-800 text-sm"}
 							/>
 							<ButtonKeyBoard
 								codeKey={"*"}
@@ -206,6 +214,7 @@ function App() {
 								setValueDisplay={setValuesDisplay}
 
 								disabled={disabledKey}
+								className={"bg-slate-700 hover:bg-slate-800 text-sm"}
 							/>
 						</div>
 					</div>
