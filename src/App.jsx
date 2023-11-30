@@ -1,6 +1,7 @@
-import { ClockCountdown, Trash } from "@phosphor-icons/react"
+import { Trash } from "@phosphor-icons/react"
 import { ButtonKeyBoard } from "./components/Button"
 import { useEffect, useState } from "react"
+import Display from "./components/Display"
 
 function App() {
 
@@ -8,9 +9,12 @@ function App() {
 	const [ valuesDisplay, setValuesDisplay ] = useState("")
 	const [ oldValue, setOldValue ] = useState("")
 
-	// useEffect(()=>{
-	// 	console.log(values);
-	// },[values])
+	const [ disabledKey, setDisabledKey ] = useState(true)
+
+	useEffect(()=>{
+		if (valuesDisplay.length > 0) setDisabledKey(false)
+		if(values.endsWith("+") || values.endsWith("-") || values.endsWith("*") || values.endsWith("/")) setDisabledKey(true)
+	},[values])
 
 	return (
 		<main
@@ -23,28 +27,10 @@ function App() {
 				<div
 					className="bg-zinc-100 px-5 py-8 rounded-lg flex flex-col gap-6 w-fit max-w-md"
 				>
-					<div
-						className="bg-gray-300 w-full px-4 py-2 rounded-lg"
-					>
-						<div
-							className="flex justify-between w-full items-center"
-						>
-							<button
-								className="hover:bg-zinc-200 transition-colors duration-300 rounded-full p-2"
-							>
-								<ClockCountdown size={18} />
-							</button>
-							<span>
-								{oldValue}
-							</span>
-						</div>
-
-						<input 
-							type="text" 
-							value={valuesDisplay}
-							className="w-full bg-inherit text-[2rem] text-zinc-900 focus-visible:outline-none" 
-						/>
-					</div>
+					<Display  
+						oldValue={oldValue}
+						valuesDisplay={valuesDisplay}
+					/>
 
 					<div
 						className="flex gap-6 justify-between"
@@ -158,6 +144,7 @@ function App() {
 								values={values}
 								valuesDisplay={valuesDisplay}
 								setValueDisplay={setValuesDisplay}
+								disabled={disabledKey}
 							/>
 							<ButtonKeyBoard
 								codeKey={"="}
@@ -167,6 +154,7 @@ function App() {
 								valuesDisplay={valuesDisplay}
 								setValueDisplay={setValuesDisplay}
 								setOldValue={setOldValue}
+								disabled={disabledKey}
 							/>
 						</div>
 						<div
@@ -175,7 +163,6 @@ function App() {
 							<ButtonKeyBoard
 								valueKey={<Trash size={18}/>}
 								values={"clear"}
-
 								setNewValue={setValues}
 								setValueDisplay={setValuesDisplay}
 								setOldValue={setOldValue}
@@ -187,6 +174,8 @@ function App() {
 								valuesDisplay={valuesDisplay}
 								setNewValue={setValues}
 								setValueDisplay={setValuesDisplay}
+
+								disabled={disabledKey}
 							/>
 							<ButtonKeyBoard
 								codeKey={"-"}
@@ -195,6 +184,8 @@ function App() {
 								values={values}
 								valuesDisplay={valuesDisplay}
 								setValueDisplay={setValuesDisplay}
+
+								disabled={disabledKey}
 							/>
 							<ButtonKeyBoard
 								codeKey={"/"}
@@ -203,6 +194,8 @@ function App() {
 								values={values}
 								valuesDisplay={valuesDisplay}
 								setValueDisplay={setValuesDisplay}
+
+								disabled={disabledKey}
 							/>
 							<ButtonKeyBoard
 								codeKey={"*"}
@@ -211,6 +204,8 @@ function App() {
 								values={values}
 								valuesDisplay={valuesDisplay}
 								setValueDisplay={setValuesDisplay}
+
+								disabled={disabledKey}
 							/>
 						</div>
 					</div>

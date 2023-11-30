@@ -1,3 +1,10 @@
 export default function useCalculate(value){
-    return eval(value).toString()
+    try {
+        const resultCalc = eval(value).toString()
+
+        if(resultCalc == "NaN") throw new TypeError()
+        else return resultCalc
+    } catch (error) {
+        return "Error"
+    }
 }
