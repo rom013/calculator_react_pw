@@ -1,4 +1,10 @@
 export default function useCalculate(value){
-    return eval(value).toString() 
-    // existe um erro ao utilizar o eval, pois ele permite que usuários mal intencionados insiram códigos maliciosos
+    try {
+        const resultCalc = eval(value).toString()
+
+        if(resultCalc == "NaN") throw new TypeError()
+        else return resultCalc
+    } catch (error) {
+        return "Error"
+    }
 }
