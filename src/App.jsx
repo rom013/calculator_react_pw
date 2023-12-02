@@ -8,10 +8,6 @@ function App() {
 	const [ valuesDisplay, setValuesDisplay ] = useState("")
 	const [ oldValue, setOldValue ] = useState("")
 
-	// useEffect(()=>{
-	// 	console.log(values);
-	// },[values])
-
 	return (
 		<main
 			className="bg-blur min-h-screen bg-no-repeat bg-cover dark:bg-zinc-900 flex"
