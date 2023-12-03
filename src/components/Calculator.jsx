@@ -15,7 +15,7 @@ export default function Calculator({showHistory, state}) {
         if (valuesDisplay.length > 0) setDisabledKey(false)
         else setDisabledKey(true)
 
-        if (values.endsWith("+") || values.endsWith("-") || values.endsWith("*") || values.endsWith("/")) {
+        if (values.endsWith("+") || values.endsWith("-") || values.endsWith("*") || values.endsWith("/") || values.endsWith(".")) {
             setDisabledKey(true)
         }
     }, [values, oldValue])

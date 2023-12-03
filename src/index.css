@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+head, body{
+        @apply dark:bg-zinc-950
+}
 
 @keyframes slide-left {
     0% {
