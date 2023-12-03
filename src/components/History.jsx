@@ -1,9 +1,101 @@
-export default function HistoryMenu(){
-    return(
+import { ArrowCounterClockwise, Trash } from "@phosphor-icons/react"
+import axios from "axios"
+import { useEffect, useState } from "react"
+
+export default function HistoryMenu() {
+    const [reload, setReaload] = useState(false)
+    const [history, setHistory] = useState([])
+    useEffect(() => {
+        axios.get(`${import.meta.env.VITE_URL_DATABASE_JSON}/history`)
+            .then((e) => setHistory(e.data))
+            .catch(err => console.error(err))
+    }, [reload])
+
+    function clearHistory(id) {
+        axios.delete(`${import.meta.env.VITE_URL_DATABASE_JSON}/history/${id}`)
+            .then((e) => {
+                console.log(e);
+                setReaload(!reload)
+            })
+            .catch(err => console.log(err))
+    }
+
+    return (
         <section
-            className="absolute right-0 bg-red-500 bottom-0 top-0 px-6 py-10 w"
+            className="absolute right-0 bg-white dark:bg-slate-500/10 backdrop-blur-md bottom-0 top-0 px-6 py-10 w-96 max-h-screen overflow-hidden"
         >
-            <h3>Histórico</h3>
+            <div
+                className="flex justify-between items-center"
+            >
+                <h3
+                    className="text-white text-2xl font-bold"
+                >
+                    Histórico
+                </h3>
+                <div
+                    className="flex gap-2 items-center"
+                >
+                    <button
+                        onClick={() => setReaload(!reload)}
+                        type="button"
+                        title="Recarregar histórico"
+                    >
+                        <ArrowCounterClockwise color="#fff" size={18} />
+                    </button>
+                </div>
+            </div>
+
+            <ul
+                className="flex flex-col gap-2 my-6 overflow-y-auto h-[90%]"
+            >
+                {
+                    history.sort((a, b) => b.id - a.id).map((history, i) => <ContentHistory equation={history.equation} id={history.id} result={history.result} key={i} clearHistory={clearHistory} />)
+                }
+                {
+                    history.length == 0 && (
+                        <p
+                            className="text-white w-full text-center"
+                        >
+                            O histórico está vazio. {" "}
+                            <button className="underline" onClick={() => setReaload(!reload)}
+                                type="button"
+                                title="Recarregar histórico"
+                            >
+                                atualizar
+                            </button>
+                        </p>
+                    )
+                }
+            </ul>
         </section>
+    )
+}
+
+function ContentHistory({ id, equation, result, clearHistory }) {
+    return (
+        <li
+            className="py-1 pr-8 flex relative group flex-col gap-1 items-end text-white hover:bg-slate-500/20 transition-colors duration-300"
+            id={id}
+        >
+            <span
+                className="text-base"
+            >
+                {equation}
+            </span>
+            <span
+                className="text-2xl font-semibold"
+            >
+                = {result}
+            </span>
+
+            <button
+                onClick={()=>clearHistory(id)}
+                type="button"
+                title="Apagar registro"
+                className="absolute left-3 top-3 hidden group-hover:block"
+            >
+                <Trash color="#fff" size={18} />
+            </button>
+        </li>
     )
 }

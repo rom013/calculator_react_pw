@@ -20,7 +20,7 @@ export function ButtonKeyBoard({ valueKey, codeKey, values, setNewValue, setValu
                     
                     if(valueKey == "=") {
                         setValueDisplay(useCalculate(values))
-                        setNewValue(useCalculate(values))
+                        setNewValue(useCalculate(values, true))
                         setOldValue(values)
                     }
                 }
