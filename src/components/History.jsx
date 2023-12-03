@@ -23,6 +23,7 @@ export default function HistoryMenu() {
     return (
         <section
             className="absolute right-0 bg-white dark:bg-slate-500/10 backdrop-blur-md bottom-0 top-0 px-6 py-10 w-96 max-h-screen overflow-hidden"
+            style={{animation: "slide-left 1s ease-in-out both"}}
         >
             <div
                 className="flex justify-between items-center"
@@ -38,7 +39,7 @@ export default function HistoryMenu() {
                     <button
                         onClick={() => setReaload(!reload)}
                         type="button"
-                        title="Recarregar histórico"
+                        title="Atualizar histórico"
                     >
                         <ArrowCounterClockwise color="#fff" size={18} />
                     </button>
@@ -59,9 +60,9 @@ export default function HistoryMenu() {
                             O histórico está vazio. {" "}
                             <button className="underline" onClick={() => setReaload(!reload)}
                                 type="button"
-                                title="Recarregar histórico"
+                                title="Atualizar histórico"
                             >
-                                atualizar
+                                Atualizar
                             </button>
                         </p>
                     )

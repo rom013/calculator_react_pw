@@ -3,7 +3,7 @@ import { ButtonKeyBoard } from "./Button"
 import { useEffect, useState } from "react"
 import Display from "./Display"
 
-export default function Calculator() {
+export default function Calculator({showHistory, state}) {
 
     const [values, setValues] = useState("")
     const [valuesDisplay, setValuesDisplay] = useState("")
@@ -26,6 +26,8 @@ export default function Calculator() {
             <Display
                 oldValue={oldValue}
                 valuesDisplay={valuesDisplay}
+                showHistory={showHistory}
+                state={state}
             />
 
             <div

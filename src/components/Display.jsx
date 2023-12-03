@@ -1,6 +1,6 @@
 import { ClockCountdown } from "@phosphor-icons/react";
 
-export default function Display({oldValue, valuesDisplay}) {
+export default function Display({oldValue, valuesDisplay, showHistory, state}) {
     return (
         <div
             className="bg-gray-300 dark:bg-zinc-900 w-full px-4 py-2 rounded-lg dark:text-white"
@@ -10,6 +10,7 @@ export default function Display({oldValue, valuesDisplay}) {
             >
                 <button
                     className="hover:bg-zinc-200 hover:dark:bg-zinc-600 transition-colors duration-300 rounded-full p-2"
+                    onClick={()=>{showHistory(!state)}}
                 >
                     <ClockCountdown size={18} />
                 </button>

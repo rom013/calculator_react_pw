@@ -1,14 +1,14 @@
 {
   "history": [
     {
-      "equation": "5159997/9",
-      "result": "573333",
-      "id": 1
+      "equation": "21+3",
+      "result": "24",
+      "id": 2
     },
     {
-      "equation": "573333+3-6*8",
-      "result": "573288",
-      "id": 2
+      "equation": "36-9",
+      "result": "27",
+      "id": 3
     }
   ]
 }
