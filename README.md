@@ -1,8 +1,53 @@
-# React + Vite
+# Visão Geral
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém um projeto de calculadora desenvolvido em React, como parte de uma atividade da disciplina de Programação Web.
 
-Currently, two official plugins are available:
+## Guia de Instalação
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/rom013/calculator_react_pw.git
+   ```
+
+2. Acesse o diretório local do repositório:
+   ```bash
+   cd calculator_react_pw
+   ```
+
+3. Instale as dependências do projeto:
+   ```bash
+   npm install
+   ```
+
+4. Inicie a API com JSON Server:
+   ```bash
+   json-server --watch db/history.json
+   ```
+
+5. Execute o projeto:
+   ```bash
+   npm run dev
+   ```
+
+O projeto estará disponível na URL: http://localhost:5175
+
+# API
+**Retorna todos os itens**
+```http
+  GET /history
+```
+
+**Retorna um registro através do seu ID**
+```http
+  GET /history/<ID>
+```
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `ID` | `string` | ID do registro |
+
+# Autores
+
+- [@rom013](https://github.com/rom013)
+- [@Fernando-Fernandes05](https://github.com/Fernando-Fernandes05)
+- [@LuanaAlcantara]()
