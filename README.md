@@ -30,6 +30,7 @@ Este repositório contém um projeto de calculadora desenvolvido em React, como 
    ```
 
 O projeto estará disponível na URL: http://localhost:5175
+O servidor estará disponível na URL: http://localhost:3000
 
 # API
 **Retorna todos os itens**
