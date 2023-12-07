@@ -62,7 +62,7 @@ function App() {
 
 
 			<footer
-				className="flex justify-center items-center py-2 text-white"
+				className="flex justify-center items-center py-2 dark:text-white text-zinc-800"
 			>
 				<a 
 					href="https://pawsy-alpha.vercel.app/"
