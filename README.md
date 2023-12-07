@@ -18,19 +18,23 @@ Este repositório contém um projeto de calculadora desenvolvido em React, como 
    ```bash
    npm install
    ```
+4. Instale o json-server globalmente:
+   ```bash
+   npm install -g json-server
+   ```
 
-4. Inicie a API com JSON Server:
+5. Inicie a API com JSON Server:
    ```bash
    json-server --watch db/history.json
    ```
 
-5. Execute o projeto:
+6. Execute o projeto:
    ```bash
    npm run dev
    ```
 
-O projeto estará disponível na URL: http://localhost:5175
-O servidor estará disponível na URL: http://localhost:3000
+- O projeto estará disponível na URL: http://localhost:5175
+- O servidor estará disponível na URL: http://localhost:3000
 
 # API
 **Retorna todos os itens**
