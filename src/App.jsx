@@ -18,6 +18,15 @@ const USERS = [
 	{
 		name: "Luana Alcantara",
 		image: "https://pawsy-alpha.vercel.app/assets/luana-a8515d4e.jpg",
+	},
+	{
+		name: "Nicole Nunes",
+		image: "https://pawsy-alpha.vercel.app/assets/nicole-37ee5e34.jpg",
+	},
+	{
+		name: "Pedro Daniel",
+		image: "https://pawsy-alpha.vercel.app/assets/pedro-eda90fec.jpg",
+		link: "https://github.com/pedroDanielBrunetto"
 	}
 ]
 
